@@ -3,12 +3,8 @@ from torch import autocast
 from diffusers import StableDiffusionPipeline, StableDiffusionImg2ImgPipeline, DiffusionPipeline
 from PIL import Image
 
-pipe = StableDiffusionPipeline.from_pretrained(
-    "CompVis/stable-diffusion-v1-4", 
-    revision="fp16", 
-    torch_dtype=torch.float16,
-    use_auth_token=True
-)
+pipe = DiffusionPipeline.from_pretrained("Lykon/DreamShaper")
+
 pipe = pipe.to("cuda")
 
 prompt = "a photo of an astronaut riding a horse on mars"
